@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Spike 1 Alt</title>
+        <style>
+            .content {
+                height: 400vh;
+            }
+
+            .box {
+                height: 200px;
+                width: 200px;
+                background: #151f30;
+                border-radius: 10px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content"></div>
+        <div class="box"></div>
+    </body>
+</html>
+
+<script>
+    const box = document.querySelector(".box");
+
+    const timeline = new ScrollTimeline({
+        source: document.documentElement,
+        axis: "block",
+    })
+
+    box.animate(
+        {
+            rotate: ["0deg", "360deg"],
+        },
+        {
+            timeline,
+        }
+    )
+</script>
