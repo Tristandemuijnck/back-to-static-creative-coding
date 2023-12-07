@@ -3,17 +3,24 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
         <title>Spike 1</title>
         <style>
             body {
+                background: #151F30;
+                height: 100vh;
+                width: 100vw;
+                overflow: hidden;
+            }
+
+            .wormhole {
                 background: #151F30;
             }
 
             .galaxy img {
                 position: absolute;
-                height: 100vh;
                 width: 100%;
+                height: 100%;
                 object-fit: cover;
                 object-position: center;
                 animation: collapse 1s ease-in-out 1s forwards;
@@ -21,11 +28,11 @@
 
             .wormhole img {
                 position: absolute;
-                height: 100vh;
                 width: 100%;
+                height: 100%;
                 object-fit: cover;
                 object-position: center;
-                animation: expand 4s ease-in-out 1s forwards;
+                animation: expand 3s ease-in-out 1s forwards;
                 animation-delay: 2s;
                 transform: scale(0);
             }
@@ -44,23 +51,74 @@
             @keyframes expand {
                 0% {
                     transform: scale(0) rotate(360deg);
+
+                }
+                80% {
+                    opacity: 0.5;
                 }
                 100% {
                     transform: scale(7) rotate(0deg);
+                    opacity: 0;
+                }
+            }
+
+            section {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-family: 'Roboto', sans-serif;
+                font-size: 3rem;
+                text-align: center;
+                width: 100%;
+                z-index: -1;
+            }
+
+            h1 {
+                opacity: 0;
+                animation: fadein 1s ease-in-out 1s forwards;
+                animation-delay: 4s;
+            }
+
+            @keyframes fadein {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
                 }
             }
         </style>
     </head>
     <body>
         <div class="galaxy">
-            <img src="galaxy.svg" alt="">
+            <img src="galaxy.png" alt="">
         </div>
         <div class="wormhole">
-            <img src="wormhole2.svg" alt="">
+            <img src="wormhole2.png" alt="">
         </div>
+        <section>
+            <h1>Platform Grote Thema's</h1>
+        </section>
     </body>
 </html>
 
 <script>
+    // gsap.registerPlugin(ScrollTrigger);
 
+    // let rotate = gsap.timeline({
+    //     scrollTrigger:{
+    //         trigger: ".galaxy",
+    //         pin: true,
+    //         scrub: 0.2,
+    //         start: 'top top',
+    //         end: '+=1000',
+    //     }
+    // })
+    // .to(".galaxy img", {
+    //     rotation: 360*5,
+    //     duration: 1,
+    //     ease: "none"
+    // })
 </script>
